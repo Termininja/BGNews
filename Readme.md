@@ -1,3 +1,7 @@
+<p align="center"><a href="http://academy.telerik.com/"><img src="http://telerikacademy.com/Content/Images/Header.png" /></a></p>
+
+---
+
 #Slice and Dice Project <br/>(6 January - 5 February 2016)
 
 ## Requirements for the Slice and Dice course project
