@@ -1,0 +1,31 @@
+﻿<div ng-show="isLogged">
+    <div>{{hello}}</div>
+
+    <form role="form">
+        <label ng-repeat="color in colors">
+            <input type="radio" name="colorScheme" ng-model="$parent.currentUser.colorScheme" value="{{color}}" />{{color}}
+        </label>
+
+        <div><img width="100" ng-src="{{currentUser.showImage}}" alt="{{currentUser.username}}" /></div>
+        <div><input type="file" accept="image/*" ng-model="currentUser.image" file-reader /></div>
+
+        <div><input type="text" disabled name="role" placeholder="Role" ng-model="currentUser.role" /></div>
+        <div><input type="text" disabled name="username" placeholder="Username" ng-model="currentUser.username" /></div>
+        <div><input type="text" disabled name="email" placeholder="Email" ng-model="currentUser.email" /></div>
+        <div><input type="text" name="firstname" placeholder="First Name" ng-model="currentUser.firstName" /></div>
+        <div><input type="text" name="lastname" placeholder="Last Name" ng-model="currentUser.lastName" /></div>
+        <div><input type="text" name="website" placeholder="Website" ng-model="currentUser.website" /></div>
+
+        <label>
+            <input type="radio" name="userGender" ng-model="currentUser.gender" value="Male" />Male
+        </label>
+        <label>
+            <input type="radio" name="userGender" ng-model="currentUser.gender" value="Female" />Female
+        </label>
+
+        <div><input type="text" name="aboutMe" placeholder="About me" ng-model="currentUser.aboutMe" /></div>
+        <div><button ng-click="updateProfile(currentUser)">Update profile</button></div>
+
+        <div><button ng-click="deleteProfile()">Delete user</button></div>
+    </form>
+</div>
