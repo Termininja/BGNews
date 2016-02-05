@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html ng-app="newsApp" ng-cloak>
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <title>The BG News | {{title}}</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="css/jquery-ui-1.11.4.css" />-->
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+<body ng-controller="PageController">
+    <div id="wrap">
+        <header id="header">
+            <a id="logo" href="/" ng-click="navigateTo('/')">
+                <img src="images/logo.png" alt="Bg News" />
+            </a>
+            <section>
+                <nav id="navigation" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="current">
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/category/business">Business</a>
+
+                            <a href="/category/finance">Finance</a>
+                            <a href="/category/energy">Energy</a>
+                            <a href="/category/industry">Industry</a>
+                            <a href="/category/properties">Properties</a>
+                            <a href="/category/tourism">Tourism</a>
+                        </li>
+                        <li>
+                            <a href="/category/politics">Politics</a>
+
+                            <a href="/category/diplomacy">Diplomacy</a>
+                            <a href="/category/defense">Defense</a>
+                            <a href="/category/bulgaria_in_eu">Bulgaria in EU</a>
+                            <a href="/category/domestic">Domestic</a>
+                        </li>
+                        <li>
+                            <a href="/category/world">World</a>
+
+                            <a href="/category/eu">EU</a>
+                            <a href="/category/southeast_europe">Southeast Europe</a>
+                            <a href="/category/russia">Russia</a>
+                            <a href="/category/ukraine">Ukraine</a>
+                            <a href="/category/international_business">International Business</a>
+                        </li>
+                        <li>
+                            <a href="/category/society">Society</a>
+
+                            <a href="/category/environment">Environment</a>
+                            <a href="/category/education">Education</a>
+                            <a href="/category/culture">Culture</a>
+                            <a href="/category/health">Health</a>
+                            <a href="/category/incidents">Incidents</a>
+                        </li>
+                        <li>
+                            <a href="/category/sports">Sports</a>
+                        </li>
+                        <li>
+                            <a href="/category/crime">Crime</a>
+                        </li>
+                    </ul>
+                </nav>
+                <form id="search">
+                    <input id="searchinput" type="text" name="Search" value="Search this website..." />
+                    <input id="searchsubmit" type="image" src="#" />
+                </form>
+            </section>
+        </header>
+        <div id="container" ng-view></div>
+        <footer id="footer">
+            <div class="footer-content" id="recent-posts">
+                <ul>
+                    <li>content1</li>
+                    <li>content1</li>
+                    <li>content1</li>
+                    <li>content1</li>
+                    <li>content1</li>
+                    <li>content1</li>
+                    <li>content1</li>
+                </ul>
+            </div>
+            <div class="footer-content" id="recent-comments">
+                <ul>
+                    <li>content2</li>
+                    <li>content2</li>
+                    <li>content2</li>
+                    <li>content2</li>
+                    <li>content2</li>
+                    <li>content2</li>
+                    <li>content2</li>
+                </ul>
+            </div>
+            <div class="footer-content" id="archives">
+                <ul>
+                    <li>content3</li>
+                    <li>content3</li>
+                    <li>content3</li>
+                    <li>content3</li>
+                    <li>content3</li>
+                    <li>content3</li>
+                    <li>content3</li>
+                </ul>
+            </div>
+            <div class="footer-content" id="meta">
+                <ul>
+                    <li>META</li>
+                    <li><a href="/users">Users</a></li>
+                    <li ng-show="!currentUser"><a href="/signup">Sign up</a></li>
+                    <li ng-show="!currentUser"><a href="/login">Log in</a></li>
+                    <li ng-show="currentUser"><a href="/profile">Profile</a></li>
+                    <li ng-if="currentUser.role == 'Administrator'"><a href="/new-post">Add post</a></li>
+                    <li ng-show="currentUser"><a href="/" ng-click="logout()">Log out</a></li>
+                    <li><a href="/help">Help</a></li>
+                </ul>
+            </div>
+            <p id="copyright">
+                Designed by  <a title="Elegant Themes" href="http://www.elegantthemes.com">Elegant Themes</a> | Powered by  <a href="http://www.wordpress.org">Wordpress</a>
+            </p>
+        </footer>
+    </div>
+
+
+    <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+    <!--<script src="lib/jquery/jquery-ui-1.11.4.js"></script>-->
+
+    <script src="http://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
+
+
+    <script src="lib/bootstrap/bootstrap-3.1.1.min.js"></script>
+    <!--<script src="lib/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
+    <!--<script src="lib/angular/angular-resource.js"></script>-->
+    <script src="lib/angular/angular-route.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/controllers/PageController.js"></script>
+    <script src="js/controllers/AddPostController.js"></script>
+    <script src="js/controllers/UserController.js"></script>
+    <script src="js/controllers/UsersController.js"></script>
+    <script src="js/controllers/PostController.js"></script>
+    <script src="js/controllers/PostsController.js"></script>
+    <script src="js/controllers/ProfileController.js"></script>
+    <!--<script src="js/filters/statusFilter.js"></script>-->
+    <script src="js/services/postData.js"></script>
+    <script src="js/services/userData.js"></script>
+    <!--<script src="js/directives/searchArtist.js"></script>-->
+    <script src="js/directives/postThumbnail.js"></script>
+    <script src="js/directives/userThumbnail.js"></script>
+    <script src="js/directives/fileReader.js"></script>
+    <script src="js/directives/addComment.js"></script>
+    <script src="js/directives/listOfComments.js"></script>
+</body>
+</html>
