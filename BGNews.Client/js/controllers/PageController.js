@@ -41,6 +41,10 @@ newsApp.controller('PageController', function ($q, $window, $scope, $rootScope, 
         $rootScope.navigateTo('/');
     };
 
+    $rootScope.search = function (word) {
+        $rootScope.navigateTo('/search/' + word);
+    }
+
     $rootScope.profileImageUpdate = function () {
         if ($rootScope.currentUser.showImage && $rootScope.currentUser.showImage != $rootScope.currentUser.image) {
             $rootScope.currentUser.showImage = $rootScope.currentUser.image;
