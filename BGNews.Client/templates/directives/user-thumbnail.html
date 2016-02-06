@@ -1,0 +1,12 @@
+﻿<div class="thumbnail">
+    <a href="/users/{{item.username}}">
+        <img ng-src="{{item.image}}" alt="" />
+    </a>
+    <div class="role">{{item.role}}</div>
+    <div class="date">from {{item.createdAt | date: "dd MMMM yyyy 'at' H:mm"}}</div>
+</div>
+<h2 class="user-username">{{item.username}}</h2>
+<div class="user-aboutMe">
+    <p>{{item.aboutMe}}</p>
+    <div class="user-readmore"></div>
+</div>
