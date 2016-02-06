@@ -1,8 +1,6 @@
 ﻿'use strict';
 
 newsApp.controller('PostController', function ($scope, $routeParams, $rootScope, postData) {
-    var LEVEL_OF_NESTED_COMMENTS = 3;
-    $scope.levelOfNestedComments = LEVEL_OF_NESTED_COMMENTS;
     $scope.replyToPost = true;
 
     $scope.getAllComments = function () {
@@ -31,6 +29,14 @@ newsApp.controller('PostController', function ($scope, $routeParams, $rootScope,
                 $scope.getAllComments();
                 $scope.replyToPost = true;
                 $scope.newComment = '';
+            }
+        });
+    }
+
+    $scope.deleteComment = function (commentId) {
+        postData.deleteComment(commentId).then(function (done) {
+            if (done) {
+                $scope.getAllComments();
             }
         });
     }

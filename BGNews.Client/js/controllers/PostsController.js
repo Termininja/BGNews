@@ -1,7 +1,6 @@
 ﻿'use strict';
 
-//PagingController
-newsApp.controller('PostsController', function ($scope, $routeParams, $log, $rootScope, postData, CATEGORIES, ITEMS_PER_PAGE) {
+newsApp.controller('PostsController', function ($scope, $routeParams, $rootScope, postData, CATEGORIES, ITEMS_PER_PAGE) {
     $scope.itemsPerPage = ITEMS_PER_PAGE;
     //$log.error(data);
     $scope.isUser = false;
@@ -53,4 +52,10 @@ newsApp.controller('PostsController', function ($scope, $routeParams, $log, $roo
     };
 
     $scope.getPage();
+
+
+    postData.getPopularPosts(5).then(function (data) {
+        console.log(data);
+    });
 });
+
