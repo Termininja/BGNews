@@ -1,0 +1,5 @@
+//http://jshint.com/docs/
+{
+	"undef": false,
+	"unused": true
+}
