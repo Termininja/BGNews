@@ -1,13 +1,12 @@
 ﻿<!DOCTYPE html>
-<html ng-app="newsApp" ng-cloak>
+<html class="{{csHtml}}" ng-app="newsApp" ng-cloak>
 <head>
     <base href="/" />
     <meta charset="utf-8" />
     <title>The BG News | {{title}}</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-    <!--<link rel="stylesheet" href="css/jquery-ui-1.11.4.css" />-->
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/bootstrap-3.3.1.min.css" />
+    <link rel="stylesheet" href="css/app.min.css" />
 </head>
 <body ng-controller="PageController">
     <div id="wrap">
@@ -65,8 +64,8 @@
                     </ul>
                 </nav>
                 <form id="search">
-                    <input id="searchinput" type="text" name="Search" value="Search this website..." />
-                    <input id="searchsubmit" type="image" src="#" />
+                    <input id="searchinput" type="text" name="Search" ng-model="searchedWord" placeholder="Search this website..." />
+                    <input id="searchsubmit" type="image" src="/images/search.png" ng-click="navigateTo('/search/' + searchedWord)" />
                 </form>
             </section>
         </header>
@@ -123,22 +122,15 @@
         </footer>
     </div>
 
-
     <script src="lib/jquery/jquery-2.1.0.min.js"></script>
-    <!--<script src="lib/jquery/jquery-ui-1.11.4.js"></script>-->
-
     <script src="http://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
-
-
-    <script src="lib/bootstrap/bootstrap-3.1.1.min.js"></script>
-    <!--<script src="lib/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>-->
     <script src="lib/angular/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
-    <!--<script src="lib/angular/angular-resource.js"></script>-->
     <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/bootstrap/bootstrap-3.1.1.min.js"></script>
+    <script src="lib/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
+    <!--<script src="js/all.min.js"></script>-->
     <script src="js/app.js"></script>
-
     <script src="js/controllers/PageController.js"></script>
     <script src="js/controllers/AddPostController.js"></script>
     <script src="js/controllers/UserController.js"></script>
@@ -146,14 +138,14 @@
     <script src="js/controllers/PostController.js"></script>
     <script src="js/controllers/PostsController.js"></script>
     <script src="js/controllers/ProfileController.js"></script>
-    <!--<script src="js/filters/statusFilter.js"></script>-->
+    <script src="js/controllers/SearchController.js"></script>
+    <script src="js/controllers/TagsController.js"></script>
     <script src="js/services/postData.js"></script>
     <script src="js/services/userData.js"></script>
-    <!--<script src="js/directives/searchArtist.js"></script>-->
     <script src="js/directives/postThumbnail.js"></script>
     <script src="js/directives/userThumbnail.js"></script>
-    <script src="js/directives/fileReader.js"></script>
     <script src="js/directives/addComment.js"></script>
-    <script src="js/directives/listOfComments.js"></script>
+    <script src="js/directives/links/fileReader.js"></script>
+    <script src="js/directives/links/showReply.js"></script>
 </body>
 </html>
