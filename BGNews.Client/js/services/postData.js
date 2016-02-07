@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.factory('postData', function ($rootScope, $q, $sce, CATEGORIES, DEFAULT_IMAGE) {
+    newsApp.factory('postData', function ($rootScope, $q, $sce, CATEGORIES, DEFAULT_PROFILE_IMAGE) {
         return {
             getCategory: function (skip, limit, category) {
                 var subCategories;
@@ -96,17 +96,27 @@
                         };
 
                         bigImageExists(bigImage, function (exists) {
-                            defer.resolve({
-                                createdAt: data.createdAt,
-                                user: data.get('user').get('username'),
-                                title: data.get('title'),
-                                image: exists ? bigImage : image,
-                                category: category,
-                                categoryLink: category.toLowerCase().replace(/ /g, '_'),
-                                content: $sce.trustAsHtml(data.get('content')),
-                                tags: $.map(data.get('tags'), function (tag) {
-                                    return tag.get('name');
-                                })
+                            var query = new Parse.Query($rootScope.Comment);
+                            query.equalTo('post', { __type: 'Pointer', className: 'Post', objectId: id });
+                            query.count({
+                                success: function (commentsCount) {
+                                    defer.resolve({
+                                        comments: commentsCount,
+                                        createdAt: data.createdAt,
+                                        user: data.get('user').get('username'),
+                                        title: data.get('title'),
+                                        image: exists ? bigImage : image,
+                                        category: category,
+                                        categoryLink: category.toLowerCase().replace(/ /g, '_'),
+                                        content: $sce.trustAsHtml(data.get('content')),
+                                        tags: $.map(data.get('tags'), function (tag) {
+                                            return tag.get('name');
+                                        })
+                                    });
+                                },
+                                error: function (error) {
+                                    defer.reject(error);
+                                }
                             });
                         });
                     },
@@ -186,7 +196,7 @@
                                 content: data.get('content'),
                                 username: data.get('user').get('username'),
                                 commentId: comment ? comment.id : undefined,
-                                avatar: avatar ? avatar.url() : DEFAULT_IMAGE
+                                avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                             });
                         });
 
@@ -235,7 +245,7 @@
                             newPost.set('tags', []);                //post.tags.split(/[, ]+/)   => tags are pointers
                             newPost.save({
                                 success: function () {
-                                    $rootScope.navigateTo('/');
+                                    $rootScope.reloadTo('/');
                                 }
                             });
                         }
@@ -331,7 +341,6 @@
                 return defer.promise;
             },
 
-
             getRecentComments: function (limit) {
                 var defer = $q.defer();
                 var query = new Parse.Query($rootScope.Comment).limit(limit).descending('createdAt');
@@ -373,7 +382,7 @@
                                 createdAt: post.createdAt,
                                 title: post.get('title'),
                                 user: post.get('user').get('username'),
-                                avatar: avatar ? avatar.url() : DEFAULT_IMAGE
+                                avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                             });
                         });
 
@@ -408,7 +417,6 @@
                                 count: grouped[id]
                             });
                         });
-                        console.warn(sorted);
                         sorted.sort(function (a, b) {
                             return b.count - a.count;
                         });
@@ -436,7 +444,7 @@
                                                     createdAt: post.createdAt,
                                                     title: post.get('title'),
                                                     user: post.get('user').get('username'),
-                                                    avatar: avatar ? avatar.url() : DEFAULT_IMAGE
+                                                    avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                                                 });
 
                                                 return;
@@ -482,7 +490,7 @@
                                             createdAt: post.createdAt,
                                             title: post.get('title'),
                                             user: post.get('user').get('username'),
-                                            avatar: avatar ? avatar.url() : DEFAULT_IMAGE
+                                            avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                                         });
                                     });
 
@@ -504,7 +512,7 @@
                 return defer.promise;
             },
 
-            getRelatedPosts: function (tags, limit) {
+            getRelatedPosts: function (postId, tags, limit) {
                 var defer = $q.defer();
                 var queries = [];
                 tags.forEach(function (tag) {
@@ -523,7 +531,8 @@
                         });
 
                         var postQuery = Parse.Query.or.apply(this, postQueries).limit(limit);
-                        postQuery.include('user', 'post');
+                        postQuery.notEqualTo('objectId', postId);
+                        postQuery.include('user');
                         postQuery.find({
                             success: function (data) {
                                 var posts = [];
@@ -534,7 +543,7 @@
                                         createdAt: post.createdAt,
                                         title: post.get('title'),
                                         user: post.get('user').get('username'),
-                                        avatar: avatar ? avatar.url() : DEFAULT_IMAGE
+                                        avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                                     });
                                 });
 
