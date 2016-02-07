@@ -1,0 +1,32 @@
+﻿<div>
+    <div id="directory">
+        <a href="/">Home</a>
+        <span class="">»</span>
+        <a href="/category/{{post.categoryLink}}">{{post.category}}</a>
+        <span class="">»</span>
+        {{post.title}}
+    </div>
+    <div id="post-main">
+        <p>{{post.title}}</p>
+        <p>{{post.user}}</p>
+        <img src="{{post.image}}" alt="{{post.title}}" />
+        <p>{{post.category}}</p>
+        <p ng-bind-html="post.content"></p>
+        <p>{{post.createdAt}}</p>
+        <ul id="post-tags">
+            <li class="post-tag" ng-repeat="tag in post.tags">
+                <a href="/tags/{{tag}}">{{tag}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr />
+
+    <div id="post-comments">
+        <ul>
+            <li id="{{comment.id}}" class="comment-level-{{commentLevel = 1}}" ng-repeat="comment in comments" ng-include src="'templates/list-of-comments.html'"></li>
+        </ul>
+    </div>
+
+    <div ng-show="replyToPost" add-comment></div>
+</div>

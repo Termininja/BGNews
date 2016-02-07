@@ -1,0 +1,20 @@
+﻿<div>
+    <div class="comment-avatar">
+        <a href="/users/{{comment.username}}">
+            <img width="100" src="{{comment.avatar}}" alt="{{comment.username}} avatar" />
+        </a>
+    </div>
+    <div class="comment-createdAt">{{comment.createdAt | date: "MMM dd"}}</div>
+</div>
+<div class="comment-username">{{comment.username}}</div>
+<div class="comment-content">{{comment.content}}</div>
+<div ng-show="currentUser">
+    <div ng-show="showReplyLink" show-reply>
+        <a href="" ng-click="replyTo(comment.id)">Reply</a>
+        <div ng-show="comment.showReply" add-comment></div>
+    </div>
+    <div ng-if="currentUser.role == 'Administrator'"><a href="" ng-click="deleteComment(comment.id)">Delete</a></div>
+</div>
+<ul>
+    <li id="{{comment.id}}" class="comment-level-{{commentLevel}}" ng-repeat="comment in comment.comments" ng-include src="'templates/list-of-comments.html'"></li>
+</ul>

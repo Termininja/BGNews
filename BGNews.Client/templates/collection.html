@@ -1,0 +1,22 @@
+﻿<div>
+    <div ng-show="isHome" id="directory">
+        <a href="/">Home</a>
+        <span class="">»</span>
+        {{title}}
+    </div>
+    <ul id="posts">
+        <li class="post" ng-repeat="item in collection">
+            <div ng-show="isPost" post-thumbnail></div>
+            <div ng-show="isUser" user-thumbnail></div>
+        </li>
+    </ul>
+    <section id="pagination">
+        <div pagination boundary-links="true"
+             max-size="pages"
+             items-per-page="itemsPerPage"
+             total-items="totalItems"
+             ng-model="currentPage"
+             ng-change="getPage()">
+        </div>
+    </section>
+</div>

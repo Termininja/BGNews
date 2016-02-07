@@ -3,7 +3,7 @@
 
     <form role="form">
         <label ng-repeat="color in colors">
-            <input type="radio" name="colorScheme" ng-model="$parent.currentUser.colorScheme" value="{{color}}" />{{color}}
+            <input type="radio" ng-change="colorSchemeUpdate()" name="colorScheme" ng-model="$parent.currentUser.colorScheme" value="{{color}}" />{{color}}
         </label>
 
         <div><img width="100" ng-src="{{currentUser.showImage}}" alt="{{currentUser.username}}" /></div>
