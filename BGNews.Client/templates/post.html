@@ -6,27 +6,94 @@
         <span class="">»</span>
         {{post.title}}
     </div>
-    <div id="post-main">
-        <p>{{post.title}}</p>
-        <p>{{post.user}}</p>
-        <img src="{{post.image}}" alt="{{post.title}}" />
-        <p>{{post.category}}</p>
-        <p ng-bind-html="post.content"></p>
-        <p>{{post.createdAt}}</p>
-        <ul id="post-tags">
-            <li class="post-tag" ng-repeat="tag in post.tags">
-                <a href="/tags/{{tag}}">{{tag}}</a>
-            </li>
-        </ul>
+    <div>
+        <div id="post-main">
+            <h2>{{post.title}}</h2>
+            <h3>Posted by {{post.user}} on {{post.createdAt | date: "MMM dd, yyyy"}} in {{post.category}} | {{post.comments}} comments</h3>
+            <p ng-bind-html="post.content"></p>
+            <div id="comments">
+                <hr />
+                <div id="post-comments">
+                    <ul>
+                        <li id="{{comment.id}}" class="comment-level-{{commentLevel = 1}}" ng-repeat="comment in comments" ng-include src="'templates/list-of-comments.html'"></li>
+                    </ul>
+                </div>
+                <div ng-show="replyToPost" add-comment></div>
+            </div>
+        </div>
+
+        <div id="sidebar-left">
+            <div id="post-image">
+                <img src="{{post.image}}" alt="{{post.title}}" />
+                <p>{{post.category}}</p>
+                <p>{{post.createdAt| date: "MMM dd"}}</p>
+            </div>
+            <ul id="post-tags">
+                <h2>Tags</h2>
+                <li class="post-tag" ng-repeat="tag in post.tags">
+                    <a href="/tags/{{tag}}">{{tag}}</a>
+                </li>
+            </ul>
+            <div id="related-posts-left">
+                <h2>Related Posts</h2>
+                <ul>
+                    <li ng-repeat="post in relatedPosts.slice(0, -1)">
+                        <a href="/post/{{post.id}}">{{post.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="post-share">
+                <a href="#"><img src="#" alt="Alternate Text" /></a>
+                <a href="#"><img src="#" alt="Alternate Text" /></a>
+                <a href="#"><img src="#" alt="Alternate Text" /></a>
+                <a href="#"><img src="#" alt="Alternate Text" /></a>
+                <a href="#"><img src="#" alt="Alternate Text" /></a>
+            </div>
+        </div>
     </div>
 
-    <hr />
-
-    <div id="post-comments">
-        <ul>
-            <li id="{{comment.id}}" class="comment-level-{{commentLevel = 1}}" ng-repeat="comment in comments" ng-include src="'templates/list-of-comments.html'"></li>
-        </ul>
+    <div id="sidebar-right">
+        <section id="tab-posts">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" ng-click="toggleTab(0)" href="">Recent</a></li>
+                <li><a data-toggle="pill" ng-click="toggleTab(1)" href="">Popular</a></li>
+                <li><a data-toggle="pill" ng-click="toggleTab(2)" href="">Random</a></li>
+            </ul>
+            <div class="tab-content">
+                <div ng-repeat="i in [0, 1, 2]" ng-show="tabPostsShow[{{i}}]" class="tabFade">
+                    <ul>
+                        <li ng-repeat="post in tabPosts[i]">
+                            <a href="{{post.id}}"><img width="100" src="{{post.avatar}}" alt="{{post.user}} avatar" /></a>
+                            <h3>{{post.title}}</h3>
+                            <p>Posted by {{post.user}} on {{post.createdAt | date: "MMM dd, yyyy"}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="recent-posts">
+            <h2>Recent Posts</h2>
+            <ul>
+                <li ng-repeat="post in recentPosts">
+                    <a href="/post/{{post.id}}">{{post.title}}</a>
+                </li>
+            </ul>
+        </section>
+        <section id="recent-comments">
+            <h2>Recent Comments</h2>
+            <ul>
+                <li ng-repeat="comment in recentComments">
+                    <a href="/post/{{comment.postId}}">{{comment.content}}</a>
+                </li>
+            </ul>
+        </section>
+        <section id="related-posts">
+            <h2>Related Posts</h2>
+            <ul>
+                <li ng-repeat="post in relatedPosts">
+                    <a href="/post/{{post.id}}">{{post.title}}</a>
+                </li>
+            </ul>
+        </section>
     </div>
-
-    <div ng-show="replyToPost" add-comment></div>
 </div>
