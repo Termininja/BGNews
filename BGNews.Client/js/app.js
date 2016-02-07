@@ -1,4 +1,4 @@
-﻿var newsApp = angular.module('newsApp', ['ngRoute', 'ui.bootstrap']);
+﻿var newsApp = angular.module('newsApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate']);
 
 (function () {
     'use strict';
@@ -64,7 +64,7 @@
        })
        .constant('ITEMS_PER_PAGE', 6)
        .constant('LEVEL_OF_NESTED_COMMENTS', 3)
-       .constant('DEFAULT_IMAGE', 'http://s15.postimg.org/j9x15yxxj/user.jpg')
+       .constant('DEFAULT_PROFILE_IMAGE', 'http://s15.postimg.org/j9x15yxxj/user.jpg')
        .constant('SCHEME_COLORS', ['Black', 'Brown', 'Gray', 'Red', 'Turquoise'])
        .constant('CATEGORIES', {
            Business: ["Finance", "Energy", "Industry", "Properties", "Tourism"],
