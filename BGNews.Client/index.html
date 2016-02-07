@@ -3,6 +3,7 @@
 <head>
     <base href="/" />
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The BG News | {{title}}</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/bootstrap-3.3.1.min.css" />
@@ -11,61 +12,77 @@
 <body ng-controller="PageController">
     <div id="wrap">
         <header id="header">
-            <a id="logo" href="/" ng-click="navigateTo('/')">
+            <a id="logo" href="/" ng-click="reloadTo('/')">
                 <img src="images/logo.png" alt="Bg News" />
             </a>
             <section>
                 <nav id="navigation" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="current">
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/category/business">Business</a>
+                    <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                    Business<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/category/finance">Finance</a></li>
+                                    <li><a href="/category/energy">Energy</a></li>
+                                    <li><a href="/category/industry">Industry</a></li>
+                                    <li><a href="/category/properties">Properties</a></li>
+                                    <li><a href="/category/tourism">Tourism</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/politics">
+                                    Politics<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/category/diplomacy">Diplomacy</a></li>
+                                    <li><a href="/category/defense">Defense</a></li>
+                                    <li><a href="/category/bulgaria_in_eu">Bulgaria in EU</a></li>
+                                    <li><a href="/category/domestic">Domestic</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/world">
+                                    World<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/category/eu">EU</a></li>
+                                    <li><a href="/category/southeast_europe">Southeast Europe</a></li>
+                                    <li><a href="/category/russia">Russia</a></li>
+                                    <li><a href="/category/ukraine">Ukraine</a></li>
+                                    <li><a href="/category/international_business">International Business</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/society">
+                                    Society<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/category/environment">Environment</a></li>
+                                    <li><a href="/category/education">Education</a></li>
+                                    <li><a href="/category/culture">Culture</a></li>
+                                    <li><a href="/category/health">Health</a></li>
+                                    <li><a href="/category/incidents">Incidents</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/category/sports">Sports</a>
+                            </li>
+                            <li>
+                                <a href="/category/crime">Crime</a>
+                            </li>
+                        </ul>
 
-                            <a href="/category/finance">Finance</a>
-                            <a href="/category/energy">Energy</a>
-                            <a href="/category/industry">Industry</a>
-                            <a href="/category/properties">Properties</a>
-                            <a href="/category/tourism">Tourism</a>
-                        </li>
-                        <li>
-                            <a href="/category/politics">Politics</a>
+                    </div>
 
-                            <a href="/category/diplomacy">Diplomacy</a>
-                            <a href="/category/defense">Defense</a>
-                            <a href="/category/bulgaria_in_eu">Bulgaria in EU</a>
-                            <a href="/category/domestic">Domestic</a>
-                        </li>
-                        <li>
-                            <a href="/category/world">World</a>
-
-                            <a href="/category/eu">EU</a>
-                            <a href="/category/southeast_europe">Southeast Europe</a>
-                            <a href="/category/russia">Russia</a>
-                            <a href="/category/ukraine">Ukraine</a>
-                            <a href="/category/international_business">International Business</a>
-                        </li>
-                        <li>
-                            <a href="/category/society">Society</a>
-
-                            <a href="/category/environment">Environment</a>
-                            <a href="/category/education">Education</a>
-                            <a href="/category/culture">Culture</a>
-                            <a href="/category/health">Health</a>
-                            <a href="/category/incidents">Incidents</a>
-                        </li>
-                        <li>
-                            <a href="/category/sports">Sports</a>
-                        </li>
-                        <li>
-                            <a href="/category/crime">Crime</a>
-                        </li>
-                    </ul>
                 </nav>
                 <form id="search">
                     <input id="searchinput" type="text" name="Search" ng-model="searchedWord" placeholder="Search this website..." />
-                    <input id="searchsubmit" type="image" src="/images/search.png" ng-click="navigateTo('/search/' + searchedWord)" />
+                    <input id="searchsubmit" type="image" src="/images/search.png" ng-click="reloadTo('/search/' + searchedWord)" />
                 </form>
             </section>
         </header>
@@ -126,6 +143,7 @@
     <script src="http://www.parsecdn.com/js/parse-1.6.14.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
     <script src="lib/bootstrap/bootstrap-3.1.1.min.js"></script>
     <script src="lib/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
