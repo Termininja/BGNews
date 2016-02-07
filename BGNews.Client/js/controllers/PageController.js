@@ -1,8 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.controller('PageController', function ($q, $window, $scope, $rootScope, userData, DEFAULT_IMAGE) {
+    newsApp.controller('PageController', function ($q, $location, $window, $scope, $rootScope, userData, DEFAULT_PROFILE_IMAGE) {
         $rootScope.navigateTo = function (path) {
+            $location.path(path);
+            $rootScope.$apply();
+        };
+
+        $rootScope.reloadTo = function (path) {
             $window.location.assign(path);
         };
 
@@ -10,7 +15,7 @@
             Parse.User.logIn(user.username, user.password, {
                 success: function () {
                     $rootScope.statusUpdate();
-                    $rootScope.navigateTo('/');
+                    $rootScope.reloadTo('/');
                 },
                 error: function (user, error) {
                     console.log('Error: ' + error.code + ' ' + error.message);
@@ -28,7 +33,7 @@
             newUser.set('role', { __type: 'Pointer', className: '_Role', objectId: USER_ROLE_ID });
             newUser.signUp(null, {
                 success: function () {
-                    $rootScope.navigateTo('/profile');
+                    $rootScope.reloadTo('/profile');
                 },
                 error: function (user, error) {
                     console.log('Error: ' + error.code + ' ' + error.message);
@@ -39,7 +44,7 @@
         $rootScope.logout = function () {
             Parse.User.logOut();
             $rootScope.statusUpdate();
-            $rootScope.navigateTo('/');
+            $rootScope.reloadTo('/');
         };
 
         $rootScope.profileImageUpdate = function () {
@@ -50,7 +55,7 @@
                 $rootScope.currentUser.showImage = $rootScope.currentUser.image.url();
             }
             else {
-                $rootScope.currentUser.showImage = DEFAULT_IMAGE;
+                $rootScope.currentUser.showImage = DEFAULT_PROFILE_IMAGE;
             }
         };
 

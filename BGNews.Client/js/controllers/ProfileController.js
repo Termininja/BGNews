@@ -17,7 +17,7 @@
         }
         else {
             $scope.isLogged = false;
-            $rootScope.navigateTo('/');
+            $rootScope.reloadTo('/');
         }
     });
 }());

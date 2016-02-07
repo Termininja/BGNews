@@ -9,12 +9,12 @@
             };
 
             $scope.cancel = function () {
-                $rootScope.navigateTo('/');
+                $rootScope.reloadTo('/');
             };
         }
         else {
             $scope.isAdmin = false;
-            $rootScope.navigateTo('/');
+            $rootScope.reloadTo('/');
         }
     });
 }());
