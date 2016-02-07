@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.factory('userData', function ($q, $log, $rootScope, DEFAULT_IMAGE) {
+    newsApp.factory('userData', function ($q, $log, $rootScope, DEFAULT_PROFILE_IMAGE) {
         return {
             getUsers: function (skip, limit) {
                 var defer = $q.defer();
@@ -18,7 +18,7 @@
                                     users.push({
                                         username: user.get('username'),
                                         createdAt: user.createdAt,
-                                        avatar: avatar ? avatar.url() : DEFAULT_IMAGE,
+                                        avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE,
                                         //email: user.get('email'),
                                         //firstName: user.get('firstName'),
                                         //lastName: user.get('lastName'),
@@ -59,7 +59,7 @@
                         defer.resolve({
                             username: data.get('username'),
                             createdAt: data.createdAt,
-                            image: avatar ? avatar.url() : DEFAULT_IMAGE,
+                            image: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE,
                             email: data.get('email'),
                             firstName: data.get('firstName'),
                             lastName: data.get('lastName'),
@@ -100,7 +100,7 @@
                 user.set('aboutMe', user.aboutMe);
                 user.set('colorScheme', user.colorScheme);
 
-                if (user.showImage.length > 10000) {
+                if (user.showImage.length > 1000) {
                     var file = new Parse.File(user.id + '.jpg', { base64: user.image });
                     file.save().then(function (image) {
                         user.set('image', image);
