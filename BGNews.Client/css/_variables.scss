@@ -1,0 +1,47 @@
+﻿/*Fonts*/
+$droidSansFont: 'DroidSans';
+$leagueGothicFont: 'LeagueGothic';
+$yanoneKaffeesatzFont: 'YanoneKaffeesatz';
+
+$fonts: ( 
+    $droidSansFont: '../fonts/droidsans-webfont',
+    $leagueGothicFont: '../fonts/leaguegothic-webfont', 
+    $yanoneKaffeesatzFont: '../fonts/yanonekaffeesatz-webfont' 
+);
+
+/*Posts*/
+$postWidth: 222px;
+
+
+/*Color Schemes: Black, Brown, Gray, Red, Turquoise*/
+
+$fonts2: ( 
+    $droidSansFont: '../fonts/droidsans-webfont',
+    $leagueGothicFont: '../fonts/leaguegothic-webfont', 
+    $yanoneKaffeesatzFont: '../fonts/yanonekaffeesatz-webfont' 
+);
+
+
+$colorSchemes: ( 
+    'black': (
+        'background': #323232,
+
+    ),
+    'brown': (
+        'background': #52392d,
+
+    ), 
+    'gray': (
+        'background': #d9d9d9,
+
+    ), 
+    'red': (
+        'background': #6e1d12,
+
+    ), 
+    'turquoise': (
+        'background': #126a6e,
+    
+    ) 
+);
+
