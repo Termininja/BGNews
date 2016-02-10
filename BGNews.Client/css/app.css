@@ -1,0 +1,241 @@
+﻿/*Fonts*/
+@font-face {
+  font-family: "DroidSans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/droidsans-webfont.eot");
+  src: url("../fonts/droidsans-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/droidsans-webfont.woff") format("woff"), url("../fonts/droidsans-webfont.ttf") format("truetype"), url("../fonts/droidsans-webfont.svg#DroidSans") format("svg");
+}
+
+@font-face {
+  font-family: "LeagueGothic";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/leaguegothic-webfont.eot");
+  src: url("../fonts/leaguegothic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/leaguegothic-webfont.woff") format("woff"), url("../fonts/leaguegothic-webfont.ttf") format("truetype"), url("../fonts/leaguegothic-webfont.svg#LeagueGothic") format("svg");
+}
+
+@font-face {
+  font-family: "YanoneKaffeesatz";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/yanonekaffeesatz-webfont.eot");
+  src: url("../fonts/yanonekaffeesatz-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/yanonekaffeesatz-webfont.woff") format("woff"), url("../fonts/yanonekaffeesatz-webfont.ttf") format("truetype"), url("../fonts/yanonekaffeesatz-webfont.svg#YanoneKaffeesatz") format("svg");
+}
+
+/*Color Schemes*/
+.cs-html-black {
+  background: #1d1d1d;
+  background: -moz-linear-gradient(left, #1d1d1d 0%, #323232 20%, #323232 80%, #1d1d1d 100%);
+  background: -webkit-linear-gradient(left, #1d1d1d 0%, #323232 20%, #323232 80%, #1d1d1d 100%);
+  background: linear-gradient(to right, #1d1d1d 0%, #323232 20%, #323232 80%, #1d1d1d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+.cs-html-brown {
+  background: #392820;
+  background: -moz-linear-gradient(left, #392820 0%, #52392d 20%, #52392d 80%, #392820 100%);
+  background: -webkit-linear-gradient(left, #392820 0%, #52392d 20%, #52392d 80%, #392820 100%);
+  background: linear-gradient(to right, #392820 0%, #52392d 20%, #52392d 80%, #392820 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+.cs-html-gray {
+  background: #d5d5d5;
+  background: -moz-linear-gradient(left, #d5d5d5 0%, #d9d9d9 20%, #d9d9d9 80%, #d5d5d5 100%);
+  background: -webkit-linear-gradient(left, #d5d5d5 0%, #d9d9d9 20%, #d9d9d9 80%, #d5d5d5 100%);
+  background: linear-gradient(to right, #d5d5d5 0%, #d9d9d9 20%, #d9d9d9 80%, #d5d5d5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+.cs-html-red {
+  background: #4b150e;
+  background: -moz-linear-gradient(left, #4b150e 0%, #6e1d12 20%, #6e1d12 80%, #4b150e 100%);
+  background: -webkit-linear-gradient(left, #4b150e 0%, #6e1d12 20%, #6e1d12 80%, #4b150e 100%);
+  background: linear-gradient(to right, #4b150e 0%, #6e1d12 20%, #6e1d12 80%, #4b150e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+.cs-html-turquoise {
+  background: #0e494b;
+  background: -moz-linear-gradient(left, #0e494b 0%, #126a6e 20%, #126a6e 80%, #0e494b 100%);
+  background: -webkit-linear-gradient(left, #0e494b 0%, #126a6e 20%, #126a6e 80%, #0e494b 100%);
+  background: linear-gradient(to right, #0e494b 0%, #126a6e 20%, #126a6e 80%, #0e494b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+.cs-left-arrow-white, .cs-right-arrow-white, .cs-left-arrow-black, .cs-right-arrow-black {
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 29px;
+  width: 27px;
+  cursor: pointer;
+  top: 35px;
+}
+
+.cs-left-arrow-white {
+  background-image: url("/images/left-arrow-white.png");
+  left: 12px;
+}
+
+.cs-right-arrow-white {
+  background-image: url("/images/right-arrow-white.png");
+  right: 12px;
+}
+
+.cs-left-arrow-black {
+  background-image: url("/images/left-arrow-black.png");
+  left: 12px;
+}
+
+.cs-right-arrow-black {
+  background-image: url("/images/right-arrow-black.png");
+  right: 12px;
+}
+
+.clearfix:after, #header:after, #container:after, #footer:after, #navigation ul:after, .post:after {
+  content: '';
+  height: 0;
+  clear: both;
+  display: block;
+}
+
+.reset, html, body, header, footer, legend, nav, div, ul, li, form, input, img, p, a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#header, #container, #footer, #navigation ul, .post {
+  zoom: 1;
+}
+
+/*Main Styles*/
+body {
+  background: none;
+  color: #7a7575;
+  font: 13px LeagueGothic, 'Segoe UI', Arial, Verdana, sans-serif;
+  line-height: 19px;
+}
+
+#bgn-wrap {
+  margin: auto;
+  width: 1680px;
+  padding: 0 0 0 3%;
+}
+
+#bgn-header {
+  margin-bottom: 50px;
+}
+
+#bgn-header > a {
+  text-decoration: none;
+}
+
+#bgn-header > a > img {
+  margin: 122px 0 5px;
+}
+
+/*.post {
+    display: inline-block;
+    width: 270px;
+}*/
+.post img {
+  /*see below, it is different*/
+  /*width: 100%;*/
+}
+
+#navigation ul {
+  /*float: left;*/
+  /*list-style: none;*/
+}
+
+#navigation ul > li {
+  /*text-transform: uppercase;
+        background: orange;
+        float: left;*/
+}
+
+#navigation ul > li .active > a {
+  /*color: red;*/
+}
+
+#navigation ul > li > a {
+  /*text-decoration: none;*/
+}
+
+#navigation ul > li > a:hover {
+  /*background-color: #dcc08e;*/
+}
+
+#navigation ul > li.current > a {
+  /*color: brown;*/
+}
+
+/*Pagination*/
+#bgn-pagination {
+  position: relative;
+}
+
+#bgn-pagination > ul.pagination > li > a {
+  color: #fff;
+  font-size: 36px;
+  background: none;
+  border: none;
+}
+
+#bgn-pagination > ul.pagination > li > a:hover, #bgn-pagination > ul.pagination > li > a:focus {
+  z-index: 3;
+  color: #dcc08e;
+  background: none;
+  border: none;
+}
+
+#bgn-pagination > ul.pagination > li:first-child, #bgn-pagination > ul.pagination > li:last-child, #bgn-pagination > ul.pagination > li:nth-child(2), #bgn-pagination > ul.pagination > li:nth-last-child(2) {
+  display: none;
+}
+
+#bgn-pagination > ul.pagination .active a, #bgn-pagination > ul.pagination .active a:hover, #bgn-pagination > ul.pagination .active a:focus {
+  color: #dcc08e;
+  background: none;
+}
+
+#bgn-pagination > ul.pagination .disabled {
+  display: none;
+}
+
+#posts {
+  /*list-style: none;*/
+}
+
+#posts > .post {
+  /*float: left;*/
+  /*border: 1px solid blue;*/
+}
+
+#posts > .post img {
+  /*width: $postWidth;*/
+}
+
+#posts > .post.post-double {
+  /*color: yellow;*/
+}
+
+#posts > .post.post-double img {
+  /*width: 2*$postWidth;*/
+}
+
+.ng-hide-remove {
+  display: block !important;
+}
+
+.tabFade {
+  transition: 0.5s linear all;
+  opacity: 1;
+}
+
+.tabFade.ng-hide {
+  opacity: 0;
+}
+
+/*# sourceMappingURL=app.css.map */

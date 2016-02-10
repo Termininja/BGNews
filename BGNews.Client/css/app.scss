@@ -1,0 +1,200 @@
+﻿@import 'variables';
+@import 'mixins';
+
+/*Fonts*/
+@each $font, $path in $fonts {
+    @include font-face($font, $path);
+}
+
+/*Color Schemes*/
+@each $scheme, $value in $cs-html {
+    .cs-html-#{$scheme} {
+        @include linear-gradient(nth($value, 1), nth($value, 2));
+    }
+}
+
+.cs-left-arrow-white, .cs-right-arrow-white, .cs-left-arrow-black, .cs-right-arrow-black {
+    position: absolute;
+    background-repeat: no-repeat;
+    height: 29px;
+    width: 27px;
+    cursor: pointer;
+    top: 35px;
+}
+
+.cs-left-arrow-white {
+    background-image: url('/images/left-arrow-white.png');
+    left: 12px;
+}
+
+.cs-right-arrow-white {
+    background-image: url('/images/right-arrow-white.png');
+    right: 12px;
+}
+
+.cs-left-arrow-black {
+    background-image: url('/images/left-arrow-black.png');
+    left: 12px;
+}
+
+.cs-right-arrow-black {
+    background-image: url('/images/right-arrow-black.png');
+    right: 12px;
+}
+
+
+
+.clearfix {
+    @include clearfix();
+}
+
+.reset {
+    @include reset;
+}
+
+html, body, header, footer, legend, nav, div, ul, li, form, input, img, p, a {
+    @extend .reset;
+}
+
+#header, #container, #footer, #navigation ul, .post {
+    zoom: 1;
+    @extend .clearfix;
+}
+
+
+/*Main Styles*/
+body {
+    background: none;
+    color: #7a7575;
+    font: 13px LeagueGothic, 'Segoe UI', Arial, Verdana, sans-serif;
+    line-height: 19px;
+}
+
+#bgn-wrap {
+    margin: auto;
+    width: 1680px;
+    padding: 0 0 0 3%;
+}
+
+#bgn-header {
+    margin-bottom: 50px;
+
+    > a {
+        text-decoration: none;
+
+        > img {
+            margin: 122px 0 5px;
+        }
+    }
+}
+
+
+
+
+
+/*.post {
+    display: inline-block;
+    width: 270px;
+}*/
+
+.post img {
+    /*see below, it is different*/
+    /*width: 100%;*/
+}
+
+
+#navigation ul {
+    /*float: left;*/
+    /*list-style: none;*/
+    > li {
+        .active > a {
+            /*color: red;*/
+        }
+        /*text-transform: uppercase;
+        background: orange;
+        float: left;*/
+        > a {
+            /*text-decoration: none;*/
+            &:hover {
+                /*background-color: #dcc08e;*/
+            }
+        }
+
+        &.current > a {
+            /*color: brown;*/
+        }
+    }
+}
+
+
+/*Pagination*/
+#bgn-pagination {
+    position: relative;
+
+    > ul.pagination {
+        > li {
+            > a {
+                color: #fff;
+                font-size: 36px;
+                background: none;
+                border: none;
+
+                &:hover, &:focus {
+                    z-index: 3;
+                    color: #dcc08e;
+                    background: none;
+                    border: none;
+                }
+            }
+
+            &:first-child, &:last-child, &:nth-child(2), &:nth-last-child(2) {
+                display: none;
+            }
+        }
+
+        .active a, .active a:hover, .active a:focus {
+            color: #dcc08e;
+            background: none;
+        }
+
+        .disabled {
+            display: none;
+        }
+    }
+}
+
+
+
+#posts {
+    /*list-style: none;*/
+    > .post {
+        /*float: left;*/
+        /*border: 1px solid blue;*/
+        img {
+            /*width: $postWidth;*/
+        }
+
+        &.post-double {
+            /*color: yellow;*/
+            img {
+                /*width: 2*$postWidth;*/
+            }
+        }
+    }
+}
+
+
+
+//Tabs animation
+.ng-hide-remove {
+    display: block !important;
+}
+
+.tabFade {
+    transition: 0.5s linear all;
+    opacity: 1;
+}
+
+.tabFade.ng-hide {
+    opacity: 0;
+}
