@@ -1,14 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.controller('SearchController', function ($scope, $routeParams, postData, ITEMS_PER_PAGE) {
+    newsApp.controller('SearchController', function ($scope, $routeParams, postData, MAX_PAGINATION_PAGES, ITEMS_PER_PAGE) {
         $scope.itemsPerPage = ITEMS_PER_PAGE;
+        $scope.pages = MAX_PAGINATION_PAGES;
         $scope.isPost = true;
         $scope.isUser = false;
-        $scope.currentPage = 1;
-        $scope.pages = 5;
 
-        $scope.getPage = function () {
+        $scope.getPage = function (currentPage) {
+            $scope.currentPage = currentPage ? currentPage : $scope.currentPage;
             var skip = ($scope.currentPage - 1) * ITEMS_PER_PAGE;
             postData.search(skip, ITEMS_PER_PAGE, $routeParams.word).then(function (data) {
                 $scope.collection = data.posts;
@@ -18,6 +18,6 @@
             $scope.isHome = true;
         };
 
-        $scope.getPage();
+        $scope.getPage(1);
     });
 }());

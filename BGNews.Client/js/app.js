@@ -63,6 +63,7 @@
                .otherwise({ redirectTo: '/' });
        })
        .constant('ITEMS_PER_PAGE', 6)
+       .constant('MAX_PAGINATION_PAGES', 5)
        .constant('LEVEL_OF_NESTED_COMMENTS', 3)
        .constant('DEFAULT_PROFILE_IMAGE', 'http://s15.postimg.org/j9x15yxxj/user.jpg')
        .constant('SCHEME_COLORS', ['Black', 'Brown', 'Gray', 'Red', 'Turquoise'])

@@ -1,16 +1,15 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.controller('PostsController', function ($scope, $routeParams, $rootScope, postData, CATEGORIES, ITEMS_PER_PAGE) {
+    newsApp.controller('PostsController', function ($scope, $routeParams, $rootScope, postData, CATEGORIES, MAX_PAGINATION_PAGES, ITEMS_PER_PAGE) {
         $scope.itemsPerPage = ITEMS_PER_PAGE;
-        //$log.error(data);
+        $scope.pages = MAX_PAGINATION_PAGES;
         $scope.isUser = false;
         $scope.isPost = true;
-        $scope.currentPage = 1;
-        $scope.pages = 5;
 
-        $scope.getPage = function () {
-            var skip = ($scope.currentPage - 1) * ITEMS_PER_PAGE;
+        $scope.getPage = function (currentPage) {
+            $scope.currentPage = currentPage ? currentPage : $scope.currentPage;
+            var skip = (currentPage - 1) * ITEMS_PER_PAGE;
             var category = $routeParams.categoryName;
 
             if (category) {
@@ -52,6 +51,6 @@
             });
         };
 
-        $scope.getPage();
+        $scope.getPage(1);
     });
 }());
