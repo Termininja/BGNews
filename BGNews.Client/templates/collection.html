@@ -10,13 +10,17 @@
             <div ng-show="isUser" user-thumbnail></div>
         </li>
     </ul>
-    <section id="pagination">
-        <div pagination boundary-links="true"
-             max-size="pages"
-             items-per-page="itemsPerPage"
-             total-items="totalItems"
-             ng-model="currentPage"
-             ng-change="getPage()">
+    <div id="bgn-pagination">
+        <div class="{{csLeftArrow}} pull-left" ng-click="getPage(currentPage-1)" ng-if="currentPage>1"></div>
+        <div class="{{csRightArrow}} pull-right" ng-click="getPage(currentPage+1)" ng-if="currentPage<(totalItems/itemsPerPage)"></div>
+        <div id="bgn-pagination-pages" class="text-center">
+            <div pagination boundary-links="true"
+                 max-size="pages"
+                 items-per-page="itemsPerPage"
+                 total-items="totalItems"
+                 ng-model="currentPage"
+                 ng-change="getPage()">
+            </div>
         </div>
-    </section>
+    </div>
 </div>
