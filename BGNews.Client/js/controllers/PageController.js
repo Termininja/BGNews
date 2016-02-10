@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.controller('PageController', function ($q, $location, $window, $scope, $rootScope, userData, DEFAULT_PROFILE_IMAGE) {
+    newsApp.controller('PageController', function ($q, $location, $window, $scope, $rootScope, postData, userData, DEFAULT_PROFILE_IMAGE) {
         $rootScope.navigateTo = function (path) {
             $location.path(path);
             $rootScope.$apply();
@@ -85,6 +85,9 @@
 
         $rootScope.colorSchemeUpdate = function () {
 
+            $rootScope.csLeftArrow = 'cs-left-arrow-white';
+            $rootScope.csRightArrow = 'cs-right-arrow-white';
+
             switch ($rootScope.currentUser ? $rootScope.currentUser.colorScheme : undefined) {
                 default:    // 'Black'
                     $rootScope.csHtml = 'cs-html-black';
@@ -94,6 +97,8 @@
                     break;
                 case 'Gray':
                     $rootScope.csHtml = 'cs-html-gray';
+                    $rootScope.csLeftArrow = 'cs-left-arrow-black';
+                    $rootScope.csRightArrow = 'cs-right-arrow-black';
                     break;
                 case 'Red':
                     $rootScope.csHtml = 'cs-html-red';
@@ -104,6 +109,21 @@
             }
         };
 
+        $rootScope.getPostsInFooter = function () {
+            postData.getRecentPosts(5).then(function (recentPosts) {
+                $rootScope.recentPosts = recentPosts;
+            });
+
+            postData.getRecentComments(5).then(function (recentComments) {
+                $rootScope.recentComments = recentComments;
+            });
+
+            postData.getPopularPosts(5).then(function (popularPosts) {
+                $rootScope.popularPosts = popularPosts;
+            });
+        };
+
         $rootScope.statusUpdate();
+        $rootScope.getPostsInFooter();
     });
 }());
