@@ -46,13 +46,8 @@
         };
 
         $scope.getTabPosts = function () {
-            postData.getRecentPosts(5).then(function (recentPosts) {
-                $scope.recentPosts = recentPosts;
-                postData.getPopularPosts(4).then(function (popularPosts) {
-                    postData.getRandomPosts(4).then(function (randomPosts) {
-                        $scope.tabPosts = [recentPosts.slice(0, -1), popularPosts, randomPosts];
-                    });
-                });
+            postData.getRandomPosts(4).then(function (randomPosts) {
+                $scope.tabPosts = [$rootScope.recentPosts.slice(0, -1), $rootScope.popularPosts.slice(0, -1), randomPosts];
             });
         };
 
@@ -66,10 +61,6 @@
                 $rootScope.title = data.title;
                 $scope.post = data;
                 $scope.getAllComments();
-
-                postData.getRecentComments(5).then(function (recentComments) {
-                    $scope.recentComments = recentComments;
-                });
 
                 postData.getRelatedPosts($routeParams.postId, $scope.post.tags, 5).then(function (relatedPosts) {
                     $scope.relatedPosts = relatedPosts;
