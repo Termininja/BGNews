@@ -515,7 +515,7 @@
             getRelatedPosts: function (postId, tags, limit) {
                 var defer = $q.defer();
                 var queries = [];
-                tags.forEach(function (tag) {
+                tags.slice(0, 10).forEach(function (tag) {
                     var query = new Parse.Query($rootScope.Tag).equalTo('name', tag);
                     queries.push(query);
                 });
