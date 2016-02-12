@@ -1,13 +1,19 @@
-﻿<div class="thumbnail">
+﻿<div class="post-image">
     <a href="/post/{{item.id}}">
-        <img ng-src="{{item.image}}" alt="" />
+        <img class="post-image" ng-src="{{item.image}}" alt="{{item.title}}" />
+        <span class="post-category">{{item.category}}</span>
+        <span class="post-month">{{item.createdAt | date: "MMM"}}</span>
+        <span class="post-day">{{item.createdAt | date: "dd"}}</span>
     </a>
-    <div class="category">{{item.category}}</div>
-    <div class="date">{{item.createdAt | date: "dd MMMM yyyy 'at' H:mm"}}</div>
 </div>
-<h2 class="post-title">{{item.title}}</h2>
-<p class="post-postedby">Posted by {{item.user}}</p>
+<h2 class="post-title">
+    <a href="/post/{{item.id}}">{{item.title}}</a>
+</h2>
+<p class="post-postedby">
+    Posted by
+    <a href="/users/{{item.user}}">{{item.user}}</a>
+</p>
 <div class="post-content">
-    <p ng-bind-html="item.content"></p>
-    <div class="post-readmore"></div>
+    <p>{{item.content}}</p>
 </div>
+<div class="dot-pattern"></div>
