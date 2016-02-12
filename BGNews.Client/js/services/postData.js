@@ -37,7 +37,7 @@
                                             title: post.get('title'),
                                             image: post.get('image'),
                                             category: post.get('category').get('name'),
-                                            content: $sce.trustAsHtml(post.get('content'))
+                                            content: post.get('content').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
                                         });
                                     });
 
@@ -349,12 +349,14 @@
                     success: function (data) {
                         var comments = [];
                         data.forEach(function (comment) {
+                            var commentContent = comment.get('content');
                             comments.push({
                                 id: comment.id,
                                 createdAt: comment.createdAt,
                                 user: comment.get('user').get('username'),
                                 postId: comment.get('post').id,
-                                content: comment.get('content'),
+                                content: commentContent,
+                                shortContent: commentContent.slice(0, 38) + (commentContent.length > 38 ? '...' : '')
                             });
                         });
 
@@ -376,11 +378,13 @@
                     success: function (data) {
                         var posts = [];
                         data.forEach(function (post) {
+                            var title = post.get('title');
                             var avatar = post.get('user').get('image');
                             posts.push({
                                 id: post.id,
                                 createdAt: post.createdAt,
-                                title: post.get('title'),
+                                title: title,
+                                shortTitle: title.slice(0, 38) + (title.length > 38 ? '...' : ''),
                                 user: post.get('user').get('username'),
                                 avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                             });
@@ -438,11 +442,13 @@
                                     limited.forEach(function (obj) {
                                         data.forEach(function (post) {
                                             if (obj.postId === post.id) {
+                                                var title = post.get('title');
                                                 var avatar = post.get('user').get('image');
                                                 posts.push({
                                                     id: post.id,
                                                     createdAt: post.createdAt,
-                                                    title: post.get('title'),
+                                                    title: title,
+                                                    shortTitle: title.slice(0, 38) + (title.length > 38 ? '...' : ''),
                                                     user: post.get('user').get('username'),
                                                     avatar: avatar ? avatar.url() : DEFAULT_PROFILE_IMAGE
                                                 });

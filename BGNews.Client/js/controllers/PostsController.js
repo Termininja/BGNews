@@ -1,13 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    newsApp.controller('PostsController', function ($scope, $routeParams, $rootScope, postData, CATEGORIES, MAX_PAGINATION_PAGES, ITEMS_PER_PAGE) {
+    newsApp.controller('PostsController', function ($scope, $rootScope, $routeParams, $location, postData, CATEGORIES, MAX_PAGINATION_PAGES, ITEMS_PER_PAGE) {
         $scope.itemsPerPage = ITEMS_PER_PAGE;
         $scope.pages = MAX_PAGINATION_PAGES;
         $scope.isUser = false;
         $scope.isPost = true;
 
         $scope.getPage = function (currentPage) {
+            $rootScope.getActiveState();
             $scope.currentPage = currentPage ? currentPage : $scope.currentPage;
             var skip = (currentPage - 1) * ITEMS_PER_PAGE;
             var category = $routeParams.categoryName;

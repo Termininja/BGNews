@@ -2,6 +2,7 @@
     'use strict';
 
     newsApp.controller('ProfileController', function ($scope, $rootScope, userData, SCHEME_COLORS) {
+        $rootScope.getActiveState();
         if ($rootScope.currentUser) {
             $scope.isLogged = true;
             $scope.hello = 'Hello ' + $rootScope.currentUser.username;

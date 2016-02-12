@@ -57,6 +57,7 @@
         };
 
         $scope.getPost = function () {
+            $rootScope.getActiveState();
             postData.getPost($routeParams.postId).then(function (data) {
                 $rootScope.title = data.title;
                 $scope.post = data;

@@ -10,131 +10,107 @@
     <link rel="stylesheet" href="css/app.min.css" />
 </head>
 <body ng-controller="PageController">
-    <div id="wrap">
-        <header id="header">
-            <a id="logo" href="/" ng-click="reloadTo('/')">
-                <img src="images/logo.png" alt="Bg News" />
+    <div id="bgn-wrap">
+        <header id="bgn-header">
+            <a href="/" ng-click="reloadTo('/')">
+                <img src="images/logo.png" alt="Website's Logo" />
             </a>
-            <section>
-                <nav id="navigation" class="navbar-collapse collapse">
-                    <div class="container-fluid">
-                        <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                                    Business<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/category/finance">Finance</a></li>
-                                    <li><a href="/category/energy">Energy</a></li>
-                                    <li><a href="/category/industry">Industry</a></li>
-                                    <li><a href="/category/properties">Properties</a></li>
-                                    <li><a href="/category/tourism">Tourism</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/politics">
-                                    Politics<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/category/diplomacy">Diplomacy</a></li>
-                                    <li><a href="/category/defense">Defense</a></li>
-                                    <li><a href="/category/bulgaria_in_eu">Bulgaria in EU</a></li>
-                                    <li><a href="/category/domestic">Domestic</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/world">
-                                    World<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/category/eu">EU</a></li>
-                                    <li><a href="/category/southeast_europe">Southeast Europe</a></li>
-                                    <li><a href="/category/russia">Russia</a></li>
-                                    <li><a href="/category/ukraine">Ukraine</a></li>
-                                    <li><a href="/category/international_business">International Business</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/category/society">
-                                    Society<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/category/environment">Environment</a></li>
-                                    <li><a href="/category/education">Education</a></li>
-                                    <li><a href="/category/culture">Culture</a></li>
-                                    <li><a href="/category/health">Health</a></li>
-                                    <li><a href="/category/incidents">Incidents</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="/category/sports">Sports</a>
-                            </li>
-                            <li>
-                                <a href="/category/crime">Crime</a>
-                            </li>
-                        </ul>
-
-                    </div>
-
+            <div>
+                <nav id="bgn-navigation">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="dropdown {{csDropdown}}">
+                            <a href="/category/business">Business<span class="bullet">»</span></a>
+                            <ul class="dropdown-menu {{csDropdown}}">
+                                <li ng-repeat="category in categories.Business">
+                                    <a class="{{csDropdown}}" href="/category/{{categoryToLink(category)}}">{{category}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown {{csDropdown}}">
+                            <a href="/category/politics">Politics<span class="bullet">»</span></a>
+                            <ul class="dropdown-menu {{csDropdown}}">
+                                <li ng-repeat="category in categories.Politics">
+                                    <a class="{{csDropdown}}" href="/category/{{categoryToLink(category)}}">{{category}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown {{csDropdown}}">
+                            <a href="/category/world">World<span class="bullet">»</span></a>
+                            <ul class="dropdown-menu {{csDropdown}}">
+                                <li ng-repeat="category in categories.World">
+                                    <a class="{{csDropdown}}" href="/category/{{categoryToLink(category)}}">{{category}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown {{csDropdown}}">
+                            <a href="/category/society">Society<span class="bullet">»</span></a>
+                            <ul class="dropdown-menu {{csDropdown}}">
+                                <li ng-repeat="category in categories.Society">
+                                    <a class="{{csDropdown}}" href="/category/{{categoryToLink(category)}}">{{category}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/category/sports">Sports</a>
+                        </li>
+                        <li>
+                            <a href="/category/crime">Crime</a>
+                        </li>
+                    </ul>
                 </nav>
-                <form id="search">
-                    <input id="searchinput" type="text" name="Search" ng-model="searchedWord" placeholder="Search this website..." />
-                    <input id="searchsubmit" type="image" src="/images/search.png" ng-click="reloadTo('/search/' + searchedWord)" />
-                </form>
-            </section>
+                <div id="bgn-search">
+                    <form class="{{csSearch}}">
+                        <input type="text" name="Search" ng-model="searchedWord" placeholder="Search this website..." />
+                        <input type="image" src="/images/search.png" ng-click="reloadTo('/search/' + searchedWord)" />
+                    </form>
+                </div>
+            </div>
         </header>
-        <div id="container" ng-view></div>
-        <footer id="footer">
-            <div class="footer-content" id="recent-posts">
-                <ul>
-                    <li>content1</li>
-                    <li>content1</li>
-                    <li>content1</li>
-                    <li>content1</li>
-                    <li>content1</li>
-                    <li>content1</li>
-                    <li>content1</li>
-                </ul>
+        <div id="bgn-container" ng-view></div>
+        <footer id="bgn-footer" class="{{csFooter}}">
+            <div>
+                <div class="footer-content">
+                    <h3>Recent Posts</h3>
+                    <ul>
+                        <li ng-repeat="recentPost in recentPosts">
+                            <a title="{{recentPost.title}}" href="/post/{{recentPost.id}}">{{recentPost.shortTitle}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    <h3>Recent Comments</h3>
+                    <ul>
+                        <li ng-repeat="recentComment in recentComments">
+                            <a title="{{recentComment.content}}" href="/post/{{recentComment.postId}}">{{recentComment.shortContent}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    <h3>Popular Posts</h3>
+                    <ul>
+                        <li ng-repeat="popularPost in popularPosts">
+                            <a title="{{popularPost.title}}" href="/post/{{popularPost.id}}">{{popularPost.shortTitle}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    <h3>Meta</h3>
+                    <ul>
+                        <li><a href="/users">Users</a></li>
+                        <li ng-show="!currentUser"><a href="/login">Log in</a></li>
+                        <li ng-show="!currentUser"><a href="/signup">Sign up</a></li>
+                        <li ng-show="currentUser"><a href="/profile">Profile</a></li>
+                        <li ng-if="currentUser.role == 'Administrator'"><a href="/new-post">Add post</a></li>
+                        <li ng-show="currentUser"><a href="/" ng-click="logout()">Log out</a></li>
+                        <li><a href="/help">Help</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-content" id="recent-comments">
-                <ul>
-                    <li>content2</li>
-                    <li>content2</li>
-                    <li>content2</li>
-                    <li>content2</li>
-                    <li>content2</li>
-                    <li>content2</li>
-                    <li>content2</li>
-                </ul>
-            </div>
-            <div class="footer-content" id="archives">
-                <ul>
-                    <li>content3</li>
-                    <li>content3</li>
-                    <li>content3</li>
-                    <li>content3</li>
-                    <li>content3</li>
-                    <li>content3</li>
-                    <li>content3</li>
-                </ul>
-            </div>
-            <div class="footer-content" id="meta">
-                <ul>
-                    <li>META</li>
-                    <li><a href="/users">Users</a></li>
-                    <li ng-show="!currentUser"><a href="/signup">Sign up</a></li>
-                    <li ng-show="!currentUser"><a href="/login">Log in</a></li>
-                    <li ng-show="currentUser"><a href="/profile">Profile</a></li>
-                    <li ng-if="currentUser.role == 'Administrator'"><a href="/new-post">Add post</a></li>
-                    <li ng-show="currentUser"><a href="/" ng-click="logout()">Log out</a></li>
-                    <li><a href="/help">Help</a></li>
-                </ul>
-            </div>
-            <p id="copyright">
-                Designed by  <a title="Elegant Themes" href="http://www.elegantthemes.com">Elegant Themes</a> | Powered by  <a href="http://www.wordpress.org">Wordpress</a>
+            <p>
+                Designed by <a title="Elegant Themes" href="http://www.elegantthemes.com">Elegant Themes</a> | Powered by <a href="http://www.wordpress.org">Wordpress</a>
             </p>
         </footer>
     </div>

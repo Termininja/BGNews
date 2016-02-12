@@ -2,6 +2,7 @@
     'use strict';
 
     newsApp.controller('AddPostController', function ($rootScope, $scope, postData) {
+        $rootScope.getActiveState();
         if ($rootScope.currentUser && $rootScope.currentUser.role === 'Administrator') {
             $scope.isAdmin = true;
             $scope.addPost = function (post) {
