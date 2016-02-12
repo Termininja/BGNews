@@ -1,0 +1,60 @@
+﻿@mixin font-face($family, $file-path) {
+    @font-face {
+        font: {
+            family: $family;
+            weight: normal;
+            style: normal;
+        }
+
+        src: url('#{$file-path}.eot');
+        src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$family}') format('svg');
+    }
+}
+
+@mixin linear-gradient($mainColor, $secondColor) {
+    background: $secondColor;
+    background: -moz-linear-gradient(left, $secondColor 0%, $mainColor 20%, $mainColor 80%,$secondColor 100%);
+    background: -webkit-linear-gradient(left, $secondColor 0%,$mainColor 20%,$mainColor 80%,$secondColor 100%);
+    background: linear-gradient(to right, $secondColor 0%,$mainColor 20%,$mainColor 80%,$secondColor 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondColor', endColorstr='$secondColor',GradientType=1 );
+}
+
+@mixin border-radius($vPosition, $hPosition, $value) {
+    -webkit-border-#{$vPosition}-#{$hPosition}-radius: $value;
+    -moz-border-radius-#{$vPosition}#{$hPosition}: $value;
+    border-#{$vPosition}-#{$hPosition}-radius: $value;
+}
+
+@mixin clearfix() {
+    &:after {
+        content: '';
+        height: 0;
+        clear: both;
+        display: block;
+    }
+}
+
+@mixin reset() {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+@mixin large {
+    @media (max-width:1000px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (max-width:500px) {
+        @content;
+    }
+}
