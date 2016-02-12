@@ -1,11 +1,11 @@
 ﻿<div>
-    <div ng-show="isHome" id="directory">
+    <div id="bgn-directory" ng-show="isHome">
         <a href="/">Home</a>
         <span class="">»</span>
         {{title}}
     </div>
-    <ul id="posts">
-        <li class="post" ng-repeat="item in collection">
+    <ul id="bgn-collection">
+        <li ng-repeat="item in collection">
             <div ng-show="isPost" post-thumbnail></div>
             <div ng-show="isUser" user-thumbnail></div>
         </li>
@@ -19,7 +19,7 @@
                  items-per-page="itemsPerPage"
                  total-items="totalItems"
                  ng-model="currentPage"
-                 ng-change="getPage()">
+                 ng-change="getPage(currentPage)">
             </div>
         </div>
     </div>
