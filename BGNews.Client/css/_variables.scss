@@ -10,6 +10,11 @@ $fonts: (
 
 $mainWidth: 1620px;
 
+$cs-arrows: (
+    'black': ('left', 'right'),
+    'white': ('left', 'right')
+);
+
 $cs-dropdown : (
     'black': #222222,
     'brown': #483228,
