@@ -2,9 +2,11 @@
 <html class="{{csHtml}}" ng-app="newsApp" ng-cloak>
 <head>
     <base href="/" />
+    <title>The BG News | {{title}}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The BG News | {{title}}</title>
+    <meta name="description" lang="en-US" content="The latest news and information on the top stories, business, politics, world, society, sports, crime and more." />
+    <meta name="keywords" lang="en-US" content="news, bulgaria news, news online, daily news, current events, top headlines, breaking news, news photos" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/bootstrap-3.3.1.min.css" />
     <link rel="stylesheet" href="css/app.min.css" />
@@ -76,7 +78,9 @@
                     <h3>Recent Posts</h3>
                     <ul>
                         <li ng-repeat="recentPost in recentPosts">
-                            <a title="{{recentPost.title}}" href="/post/{{recentPost.id}}">{{recentPost.shortTitle}}</a>
+                            <a title="{{recentPost.title}}" href="/post/{{recentPost.id}}">
+                                {{recentPost.shortTitle}}
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -84,7 +88,9 @@
                     <h3>Recent Comments</h3>
                     <ul>
                         <li ng-repeat="recentComment in recentComments">
-                            <a title="{{recentComment.content}}" href="/post/{{recentComment.postId}}">{{recentComment.shortContent}}</a>
+                            <a title="{{recentComment.content}}" href="/post/{{recentComment.postId}}#{{recentComment.id}}">
+                                {{recentComment.shortContent}}
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +98,9 @@
                     <h3>Popular Posts</h3>
                     <ul>
                         <li ng-repeat="popularPost in popularPosts">
-                            <a title="{{popularPost.title}}" href="/post/{{popularPost.id}}">{{popularPost.shortTitle}}</a>
+                            <a title="{{popularPost.title}}" href="/post/{{popularPost.id}}">
+                                {{popularPost.shortTitle}}
+                            </a>
                         </li>
                     </ul>
                 </div>
