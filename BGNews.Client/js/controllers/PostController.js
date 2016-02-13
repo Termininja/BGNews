@@ -46,6 +46,7 @@
         };
 
         $scope.getTabPosts = function () {
+            $rootScope.getPostsInFooter();
             postData.getRandomPosts(4).then(function (randomPosts) {
                 $scope.tabPosts = [$rootScope.recentPosts.slice(0, -1), $rootScope.popularPosts.slice(0, -1), randomPosts];
             });

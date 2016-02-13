@@ -152,7 +152,7 @@
                                                 title: post.get('title'),
                                                 image: post.get('image'),
                                                 category: post.get('category').get('name'),
-                                                content: $sce.trustAsHtml(post.get('content'))
+                                                content: post.get('content').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
                                             });
                                         });
 
@@ -319,7 +319,7 @@
                                         title: post.get('title'),
                                         image: post.get('image'),
                                         category: post.get('category').get('name'),
-                                        content: $sce.trustAsHtml(post.get('content'))
+                                        content: post.get('content').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
                                     });
                                 });
 
