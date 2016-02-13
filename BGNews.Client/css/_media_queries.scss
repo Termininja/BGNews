@@ -1,0 +1,244 @@
+﻿/*Layouts*/
+
+/*Design for a width of 320px*/
+@media only screen and (max-width: 479px) {
+    #bgn-header, #bgn-container {
+        width: 320px;
+    }
+
+    #bgn-search {
+        margin: 30px 82px 0 0;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 5px;
+
+        > a > img {
+            margin: 20px auto;
+            width: 95%;
+        }
+    }
+
+    #bgn-container {
+        margin: 20px auto;
+        padding: 0 0 0 30px;
+    }
+
+    #bgn-navigation .navbar-nav {
+        margin: 0 auto;
+    }
+
+    @include navigation-arrows(45px);
+
+    #bgn-footer {
+        padding-left: 10px;
+
+        > p, > div, .footer-content {
+            width: 310px;
+        }
+    }
+}
+
+/*Design for a width of 480px*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    #bgn-header, #bgn-container {
+        width: 600px;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 10px;
+
+        > a > img {
+            margin: 40px auto 5px;
+        }
+    }
+
+    #bgn-container {
+        padding: 0 0 0 10px;
+    }
+
+    @include navigation-arrows(25px);
+
+    #bgn-footer {
+        > div {
+            width: 495px;
+        }
+
+        > p {
+            width: 490px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
+
+/*Design for a width of 768px*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    #bgn-header, #bgn-container {
+        width: 768px;
+        padding: 5px 0 0 0;
+    }
+
+    #bgn-search {
+        margin: 30px 5px 0 0;
+    }
+
+    @include navigation-arrows(35px);
+
+    #bgn-footer {
+        > div, > p {
+            padding-left: 30px;
+            width: 580px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
+
+/*Design for a width of 960px*/
+@media only screen and (min-width: 960px) and (max-width: 1059px) {
+    #bgn-header, #bgn-container {
+        width: 960px;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 50px;
+
+        > a > img {
+            margin: 40px auto 5px;
+        }
+    }
+
+    #bgn-container {
+        padding: 0 0 0 50px;
+    }
+
+    @include navigation-arrows(85px);
+
+    #bgn-footer {
+        > div {
+            width: 985px;
+        }
+
+        > p {
+            width: 900px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
+
+/*Design for a width of 1060px*/
+@media only screen and (min-width: 1060px) and (max-width: 1279px) {
+    #bgn-header, #bgn-container, #bgn-collection {
+        width: 1060px;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 30px;
+
+        > a > img {
+            margin: 40px auto 5px;
+        }
+    }
+
+    #bgn-search {
+        margin: 30px 5px 0 0;
+    }
+
+    #bgn-container {
+        padding: 0 0 0 30px;
+    }
+
+    @include navigation-arrows(85px);
+
+    #bgn-footer {
+        > div {
+            width: 965px;
+        }
+
+        > p {
+            width: 900px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
+
+/*Design for a width of 1280px*/
+@media only screen and (min-width: 1280px) and (max-width: 1619px) {
+    #bgn-header, #bgn-container, #bgn-collection {
+        width: 1280px;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 20px;
+
+        > a > img {
+            margin: 40px auto 5px;
+        }
+    }
+
+    #bgn-container {
+        padding: 0 0 0 20px;
+    }
+
+    @include navigation-arrows(85px);
+
+    #bgn-footer {
+        > div {
+            width: 1280px;
+        }
+
+        > p {
+            width: 1280px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
+
+/*Design for a width of 1620px*/
+@media only screen and (min-width: 1620px) {
+    #bgn-header, #bgn-container {
+        width: 1620px;
+    }
+
+    #bgn-header {
+        padding: 0 0 0 50px;
+
+        > a > img {
+            margin: 40px auto 5px;
+        }
+    }
+
+    #bgn-container {
+        padding: 0 0 0 50px;
+    }
+
+    @include navigation-arrows(85px);
+
+    #bgn-footer {
+        > div {
+            width: 1285px;
+        }
+
+        > p {
+            width: 1200px;
+        }
+
+        .footer-content {
+            width: 320px;
+        }
+    }
+}
