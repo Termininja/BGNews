@@ -6,54 +6,65 @@
     {{post.title}}
 </div>
 <div id="bgn-post">
-    <div id="bgn-post-content">
-        <h1>{{post.title}}</h1>
-        <h2>
-            Posted by
-            <a href="/users/{{post.user}}">{{post.user}}</a>
-            on {{post.createdAt | date: "MMM dd, yyyy"}} in {{post.category}} | {{post.comments}} comments
-        </h2>
-        <p ng-bind-html="post.content"></p>
-    </div>
-    <div id="bgn-post-sidebar">
-        <div id="bgn-sidebar-thumbnail">
-            <a href="/post/{{post.id}}">
-                <img ng-src="{{post.image}}" alt="{{post.title}}" />
-                <span class="post-category">{{post.category}}</span>
-                <span class="post-month">{{post.createdAt | date: "MMM"}}</span>
-                <span class="post-day">{{post.createdAt | date: "dd"}}</span>
-            </a>
+    <section>
+        <div class="dot-pattern"></div>
+        <div id="bgn-post-content">
+            <h1>{{post.title}}</h1>
+            <h2>
+                Posted by
+                <a href="/users/{{post.user}}">{{post.user}}</a>
+                on {{post.createdAt | date: "MMM dd, yyyy"}} in {{post.category}} | {{post.comments}} comments
+            </h2>
+            <p ng-bind-html="post.content"></p>
         </div>
-        <ul id="bgn-sidebar-tags">
-            <h2>Tags</h2>
-            <li class="post-tag" ng-repeat="tag in post.tags">
-                <a href="/tags/{{tag}}">{{tag}}</a>
-            </li>
-        </ul>
-        <div id="bgn-sidebar-related-posts-left">
-            <h2>Related Posts</h2>
-            <ul>
-                <li ng-repeat="post in relatedPosts.slice(0, -1)">
-                    <a href="/post/{{post.id}}">{{post.title}}</a>
-                </li>
-            </ul>
+        <div id="bgn-post-sidebar">
+            <div id="bgn-sidebar-thumbnail">
+                <a href="{{post.image}}">
+                    <img ng-src="{{post.image}}" alt="{{post.title}}" />
+                    <span class="post-category">{{post.category}}</span>
+                    <span class="post-month">{{post.createdAt | date: "MMM"}}</span>
+                    <span class="post-day">{{post.createdAt | date: "dd"}}</span>
+                </a>
+            </div>
+            <div id="bgn-sidebar-tags">
+                <h2>Tags</h2>
+                <ul>
+                    <li class="post-tag" ng-repeat="tag in post.tags">
+                        <a href="/tags/{{tag}}">{{tag}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="bgn-sidebar-related-posts-left">
+                <h2>Related Posts</h2>
+                <ul>
+                    <li ng-repeat="post in relatedPosts.slice(0, -1)">
+                        <a href="/post/{{post.id}}">{{post.title.slice(0,40)}}...</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="bgn-sidebar-share">
+                <h2>Share This</h2>
+                <div>
+                    <a href="#"><img src="/images/share-twitter.png" alt="Twitter" /></a>
+                    <a href="#"><img src="/images/share-facebook.png" alt="Facebook" /></a>
+                    <a href="#"><img src="/images/share-delicious.png" alt="Delicious" /></a>
+                    <a href="#"><img src="/images/share-digg.png" alt="Digg" /></a>
+                    <a href="#"><img src="/images/share-reddit.png" alt="Reddit" /></a>
+                </div><br /><br /><br />
+            </div>
         </div>
-        <div id="bgn-sidebar-share">
-            <a href="#"><img src="#" alt="Alternate Text" /></a>
-            <a href="#"><img src="#" alt="Alternate Text" /></a>
-            <a href="#"><img src="#" alt="Alternate Text" /></a>
-            <a href="#"><img src="#" alt="Alternate Text" /></a>
-            <a href="#"><img src="#" alt="Alternate Text" /></a>
-        </div>
-    </div>
+        <div class="dot-pattern"></div>
+    </section>
     <div id="bgn-post-comments">
-        <hr />
+        <div class="dot-pattern"></div>
         <div id="bgn-comments">
+            <h1>{{post.comments}} Comments</h1>
             <ul>
                 <li id="{{comment.id}}" class="comment-level-{{commentLevel = 1}}" ng-repeat="comment in comments" ng-include src="'templates/list-of-comments.html'"></li>
             </ul>
+            <div class="comment-reply" ng-show="replyToPost" add-comment></div>
         </div>
-        <div ng-show="replyToPost" add-comment></div>
+        <div class="dot-pattern"></div>
     </div>
 </div>
 <div id="bgn-sidebar-right">

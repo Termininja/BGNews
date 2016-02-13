@@ -6,14 +6,14 @@
     {{user.username}}
 </div>
 
-<div>{{user.username}}</div>
-<div>{{user.createdAt}}</div>
-<div><img width="300" src="{{user.image}}" alt="{{user.username}} avatar" /></div>
-<div>{{user.email}}</div>
-<div>{{user.firstName}}</div>
-<div>{{user.lastName}}</div>
-<div>{{user.website}}</div>
-<div>{{user.gender}}</div>
-<div>{{user.aboutMe}}</div>
-<div>{{user.colorScheme}}</div>
-<div>{{user.role}}</div>
+<div id="text-info">
+    <div class="text-info">{{user.username}}</div>
+    <div>{{user.role}} registered on {{user.createdAt| date: "dd MMM yyyy"}}</div>
+    <div><img width="200" src="{{user.image}}" alt="{{user.username}} avatar" /></div>
+    <div>E-mail Address: <span>{{user.email}}</span></div>
+    <div>First Name: <span>{{user.firstName}}</span></div>
+    <div>Last Name: <span>{{user.lastName}}</span></div>
+    <div>Website: <span>{{user.website}}</span></div>
+    <div>Gender: <span>{{user.gender}}</span></div>
+    <div>About Me: <span>{{user.aboutMe}}</span></div>
+</div>

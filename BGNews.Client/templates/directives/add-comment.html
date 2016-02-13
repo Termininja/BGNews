@@ -1,6 +1,11 @@
 ﻿<div ng-show="currentUser">
     <form name="addCommentForm" role="form">
-        <div><textarea placeholder="..." ng-model="newComment" required></textarea></div>
-        <div><button ng-click="addComment(newComment)" ng-disabled="addCommentForm.$invalid">Submit comment</button></div>
+        <h3>Leave a Comment</h3>
+        <div>
+            <textarea ng-model="newComment" required></textarea>
+        </div>
+        <div>
+            <button ng-click="addComment(newComment)" ng-disabled="addCommentForm.$invalid">Submit comment</button>
+        </div>
     </form>
 </div>

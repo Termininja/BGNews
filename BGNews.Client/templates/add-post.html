@@ -1,25 +1,28 @@
 ﻿<div ng-show="isAdmin">
-    <form name="addPostForm" id="post-form" role="form">
-        <div>
-            <input type="text" name="category" placeholder="Category" ng-model="post.category" required />
-        </div>
-        <div>
-            <input type="text" name="title" placeholder="Title" ng-model="post.title" required />
-        </div>
-        <div>
-            <input type="text" name="image" placeholder="Image URL" ng-model="post.image" required />
-        </div>
-        <div>
-            <textarea id="post-content" placeholder="..." ng-model="post.content" required></textarea>
-        </div>
-        <!--<div>
-            <input type="text" name="tags" placeholder="Tags" pattern="( *\w+ *,?){1,}" title="tag1, tag2, ..." ng-model="post.tags" required />
-        </div>-->
-        <div>
-            <button ng-click="addPost(post)" ng-disabled="addPostForm.$invalid">Add Post</button>
-        </div>
-        <div>
-            <button ng-click="cancel()">Cancel</button>
-        </div>
-    </form>
+    <div class="jumbotron">
+        <form name="addPostForm" id="add-post-form" role="form">
+            <div class="form-group">
+                <label for="post-category">Category:</label>
+                <input class="form-control" id="post-category" type="text" name="category" placeholder="Category" ng-model="post.category" required />
+            </div>
+
+            <div class="form-group">
+                <label for="post-title">Title:</label>
+                <input class="form-control" id="post-title" type="text" name="title" placeholder="Title" ng-model="post.title" required />
+            </div>
+
+            <div class="form-group">
+                <label for="post-image">Image URL:</label>
+                <input class="form-control" id="post-image" type="text" name="image" placeholder="Image URL" ng-model="post.image" required />
+            </div>
+            <div class="form-group">
+                <label for="post-content">Content:</label>
+                <textarea class="form-control" id="post-content" placeholder="..." ng-model="post.content" required></textarea>
+            </div>
+            <div>
+                <button class="btn btn-info" ng-click="addPost(post)" ng-disabled="addPostForm.$invalid">Add Post</button>
+                <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>

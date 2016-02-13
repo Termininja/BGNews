@@ -1,13 +1,14 @@
-﻿<div>
-    <div class="comment-avatar">
-        <a href="/users/{{comment.username}}">
-            <img width="100" src="{{comment.avatar}}" alt="{{comment.username}} avatar" />
-        </a>
+﻿<section>
+    <a class="comment-avatar" href="/users/{{comment.username}}">
+        <img src="{{comment.avatar}}" alt="{{comment.username}} avatar" />
+        <span class="comment-month">{{comment.createdAt | date: "MMM"}}</span>
+        <span class="comment-day">{{comment.createdAt | date: "dd"}}</span>
+    </a>
+    <div class="comment-content">
+        <a href="/users/{{comment.username}}">{{comment.username}}</a>
+        <div>{{comment.content}}</div>
     </div>
-    <div class="comment-createdAt">{{comment.createdAt | date: "MMM dd"}}</div>
-</div>
-<div class="comment-username">{{comment.username}}</div>
-<div class="comment-content">{{comment.content}}</div>
+</section>
 <div ng-show="currentUser">
     <div ng-show="showReplyLink" show-reply>
         <a href="" ng-click="replyTo(comment.id)">Reply</a>

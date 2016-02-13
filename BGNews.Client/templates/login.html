@@ -1,5 +1,13 @@
-﻿<form role="form">
-    <div><input type="text" name="username" placeholder="username" ng-model="user.username"></div>
-    <div><input type="password" name="password" placeholder="password" ng-model="user.password"></div>
-    <div><button href="/" ng-click="login(user)">Login</button></div>
+﻿<form id="login-form" role="form">
+    <div class="form-group">
+        <label for="user-username">Username:</label>
+        <input class="form-control" id="user-username" type="text" name="username" placeholder="username" ng-model="user.username" required />
+    </div>
+
+    <div class="form-group">
+        <label for="user-password">Password:</label>
+        <input class="form-control" id="user-password" type="password" name="password" placeholder="password" ng-model="user.password" required />
+    </div>
+
+    <div><button class="btn btn-info" href="/" ng-click="login(user)">Login</button></div>
 </form>
