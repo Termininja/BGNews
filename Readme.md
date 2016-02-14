@@ -2,7 +2,7 @@
 
 ---
 
-#Slice and Dice Project <br/>(6 January - 5 February 2016)
+#Slice and Dice Project <br/>(6 January - 12 February 2016)
 
 ## Requirements for the Slice and Dice course project
 
