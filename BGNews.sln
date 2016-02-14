@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BGNews.Client", "http://localhost:1068", "{231C238D-727E-4198-A6BD-1A997BCDA2A4}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BgNews.Client", "http://localhost:1068", "{231C238D-727E-4198-A6BD-1A997BCDA2A4}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -24,13 +24,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BGNews.Client", "http://loc
 		SlnRelativePath = "BGNews.Client\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgNews.Bot", "BGNews.Bot\BgNews.Bot.csproj", "{EEA1691A-D7F9-44A5-97C4-C0B5DA52A843}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{231C238D-727E-4198-A6BD-1A997BCDA2A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{231C238D-727E-4198-A6BD-1A997BCDA2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231C238D-727E-4198-A6BD-1A997BCDA2A4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{231C238D-727E-4198-A6BD-1A997BCDA2A4}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EEA1691A-D7F9-44A5-97C4-C0B5DA52A843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA1691A-D7F9-44A5-97C4-C0B5DA52A843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA1691A-D7F9-44A5-97C4-C0B5DA52A843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA1691A-D7F9-44A5-97C4-C0B5DA52A843}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
