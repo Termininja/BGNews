@@ -240,6 +240,9 @@
   #bgn-container {
     padding: 0 0 0 20px;
   }
+  #bgn-search {
+    margin: 30px 40px 0 0;
+  }
   .cs-left-arrow-black {
     background-image: url("/images/left-arrow-black.png");
     background-repeat: no-repeat;
@@ -304,6 +307,9 @@
     background-image: url("/images/right-arrow-white.png");
     background-repeat: no-repeat;
     right: 85px;
+  }
+  #bgn-search {
+    margin: 30px 80px 0 0;
   }
   #bgn-footer > div {
     width: 1285px;
