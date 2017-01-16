@@ -14,22 +14,7 @@ Design and implement an **SPA application** by choice.
 
 It could be a simple game, component library, business application or any other
 -   You are absolutely free to choose the topic of your work
--   Sample applications:
-    -   Snake
-    -   Chess
-    -   Backgammon
-    -   Minesweeper
-    -   Tetris
-    -   Xonix
-    -   Supermario
-    -   Components library (windows, buttons, text boxes, menus, etc.)
-    -   Book store
-    -   Auction
-    -   Movie rental
-    -   Bug tracker
-    -   Knowledge management system
-    -   E-library
-    -   Text editor
+-   Sample applications: Snake, Chess, Backgammon, Minesweeper, Tetris, Xonix, Supermario, Components library (windows, buttons, text boxes, menus, etc.), Book store, Auction, Movie rental, Bug tracker, Knowledge management system, E-library, Text editor, etc.
 
 ###  General Requirements
 Please define and implement the following assets in your project:
