@@ -103,10 +103,10 @@ namespace BGNewsBot
                     }
                 });
 
-                Console.WriteLine(postTags.Count + " tags was found in the post.");
+                Console.WriteLine(postTags.Count + " tags were found in the post.");
                 postTags.ForEach(x => post.Tags.Add(tags[x]));
             }
-            else Console.WriteLine("No tags was found in the post!");
+            else Console.WriteLine("Post without tags!");
 
             posts.Add(post.Title, new ParseObject("Post"));
             Task.Run(() => AddPost(post)).Wait();
