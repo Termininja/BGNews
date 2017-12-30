@@ -13,6 +13,8 @@ namespace BGNewsBot
 {
     public class Bot
     {
+        private static const string IDS_FILE = "../../ids.txt";
+
         private static List<string> ids = GetOldIds();
         private static Dictionary<string, ParseObject> posts = new Dictionary<string, ParseObject>();
         private static Dictionary<string, ParseObject> tags = new Dictionary<string, ParseObject>();
@@ -75,7 +77,7 @@ namespace BGNewsBot
                 }
 
                 Console.WriteLine("\nExport all post ids...");
-                using (var writer = new StreamWriter("../../ids.txt", false))
+                using (var writer = new StreamWriter(IDS_FILE, false))
                 {
                     ids.ToList().ForEach(line => writer.WriteLine(line));
                 }
@@ -235,7 +237,7 @@ namespace BGNewsBot
         private static List<string> GetOldIds()
         {
             var result = new List<string>();
-            using (var reader = new StreamReader("../../ids.txt"))
+            using (var reader = new StreamReader(IDS_FILE))
             {
                 string line = reader.ReadLine();
                 while (line != null)
